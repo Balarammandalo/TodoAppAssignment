@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Id</title>
+</head>
+<body>
+    <h2>This Task is Delete : <%= deleteId.task %></h2>
+    <form method="post" action="/todo/<%= deleteId.id %>?_method=DELETE">
+        <label for="password">Password: </label>
+        <input name="password" id="password" type="password" placeholder="Enter your Password"/>
+        <button>Delete</button>
+    </form>
+</body>
+</html>

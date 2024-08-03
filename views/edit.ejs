@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Your about to edit this user : <%= todoD.username %></h2>
+    <form method="post" action="/todo/<%=todoD.id %>?_method=patch">
+        <textarea name="task"><%= todoD.task %></textarea>
+        <input type="password" name="password" />
+        <button>Edit</button>
+    </form>
+</body>
+</html>

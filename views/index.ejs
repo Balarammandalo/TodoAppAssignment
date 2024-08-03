@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Task</title>
+    <style>
+        table,td,th{
+            border: 2px solid black;
+            
+        }
+        h1{
+            margin-left: 40%;
+        }
+        .tables{
+            display: flex;
+            justify-content: center;
+            padding-left: 25px;
+            border: none;
+            flex-direction: row;
+        }
+        .todoApplication{
+            background-image: radial-gradient(yellow , green);
+            height: 100vh;
+        }
+        .deletebuton{
+            background-color: red;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+        }
+        .editButon{
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            background-color: aquamarine;
+        }
+        .createbuton{
+            background-color: blue;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            width: 120px;
+            height: 30px;
+            margin-left: 45%;
+            margin-top: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="todoApplication">
+    <h1>Todo Application</h1>
+    <table class="tables">
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Task</th>
+        </tr>
+        <% for(let todo of result){ %>
+            <tr>
+                <td> <%= todo.id %> </td>
+                <td><%= todo.username %></td>
+                <td><%= todo.task %></td>
+                <td>
+                    <form method="get" action="/todo/<%= todo.id %>/edit">
+                        <button class="editButon">Edit Task</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="/todo/<%= todo.id %>?_method=DELETE">
+                        <button class="deletebuton">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    
+    <form method="get" action="/todo/new">
+        <button class="createbuton">Create Todo</button>
+    </form>
+    </div>
+</body>
+</html>
